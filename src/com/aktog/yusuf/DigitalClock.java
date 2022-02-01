@@ -15,24 +15,9 @@ public class DigitalClock extends JPanel {
     int minutes;
     int hours;
     static final int delay = 1000;
-    boolean interrupted = false;
-    JButton startStopButton;
 
     public DigitalClock() {
         loadPreferences();
-        startStopButton = new JButton();
-        startStopButton.setBounds(PANEL_WIDTH - 150, 50, 100, 100);
-        startStopButton.setText("RESTART");
-        startStopButton.addActionListener(e -> {
-
-            if (interrupted) {
-                startClock();
-            } else {
-                stopClock();
-            }
-            interrupted = !interrupted;
-        });
-        this.add(startStopButton);
     }
 
     final void loadPreferences() {
@@ -92,12 +77,12 @@ public class DigitalClock extends JPanel {
 
 
         // first colon
-        g.fillOval(middlePoint + 200, 325, 25, 25);
-        g.fillOval(middlePoint + 200, 375, 25, 25);
+        g.fillOval(middlePoint + 170, 325, 25, 25);
+        g.fillOval(middlePoint + 170, 375, 25, 25);
         // second colon
 
-        g.fillOval(middlePoint + 500, 325, 25, 25);
-        g.fillOval(middlePoint + 500, 375, 25, 25);
+        g.fillOval(middlePoint + 470, 325, 25, 25);
+        g.fillOval(middlePoint + 470, 375, 25, 25);
 
         g.drawString(adjustDigitStringLength(String.valueOf(hours)), middlePoint - 40, 400);
         g.drawString(adjustDigitStringLength(String.valueOf(minutes)), middlePoint + 240, 400);
